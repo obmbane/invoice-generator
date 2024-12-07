@@ -5,6 +5,12 @@ from pathlib import Path
 
 #create list of file names
 filepaths = glob.glob('excel_templates/*.xlsx')
+company_name = 'Recon Pty (Ltd)'
+company_address = ''' Samrand Office Park
+32 XYZ Street
+Midrand
+2009
+'''
 
 
 for filepath in filepaths:
@@ -18,8 +24,16 @@ for filepath in filepaths:
 
     pdf = FPDF(orientation='P',unit='mm',format='A4')
     pdf.add_page()
+    pdf.set_font(family='Times',size=20,style='B')        # Add Company Information
+    pdf.cell(w=60,h=8,txt=company_name,ln=0)
+    pdf.image('pythonhow.png',w=9)
+    pdf.cell(w=0,h=8,txt='',ln=1)
+    pdf.set_font(family='Times',size=12,style='')
+    pdf.multi_cell(w=60,h=8,txt=company_address)
+    pdf.cell(w=0,h=8,txt='',ln=1)
 
-    pdf.set_font(family='Times',size=20,style='B')        #add invoice number
+
+    pdf.set_font(family='Times',size=14,style='B')        #add invoice number
     pdf.cell(w=60,h=8,txt=f'Invoice Number: {invoice_num}',ln=1)
 
     pdf.set_font(family='Times',size=16,style='B')       #add invoice date
