@@ -36,7 +36,7 @@ for filepath in filepaths:
     pdf.set_font(family='Times',size=14,style='B')        #add invoice number
     pdf.cell(w=60,h=8,txt=f'Invoice Number: {invoice_num}',ln=1)
 
-    pdf.set_font(family='Times',size=16,style='B')       #add invoice date
+    pdf.set_font(family='Times',size=14,style='B')       #add invoice date
     pdf.cell(w=60,h=10,txt=f'Date: {Invoice_date}',ln=2)
 
     df = pd.read_excel(filepath,sheet_name='Sheet 1')
